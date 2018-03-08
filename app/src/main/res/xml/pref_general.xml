@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<EditTextPreference-->
+        <!--android:defaultValue="357994"-->
+        <!--android:inputType="text"-->
+        <!--android:key="location"-->
+        <!--android:singleLine="true"-->
+        <!--android:title="Location" />-->
+
+    <com.example.ahmed.sunshine.AutoCompleteEditTextPreference
+        android:defaultValue="Arab Republic of Egypt, EG"
+        android:key="location"
+        android:title="Location"/>
+
+    <!--<ListPreference-->
+        <!--android:key="location"-->
+        <!--android:title="Location"-->
+        <!--android:defaultValue="Arab Republic of Egypt"/>-->
+
+    <ListPreference
+        android:defaultValue="metric"
+        android:entries="@array/pref_units_titles"
+        android:entryValues="@array/pref_units_values"
+        android:key="units"
+        android:title="Temperature Units" />
+
+    <SwitchPreference
+        android:defaultValue="@string/pref_enable_notifications_default"
+        android:key="@string/pref_enable_notifications_key"
+        android:summaryOff="@string/pref_enable_notifications_false"
+        android:summaryOn="@string/pref_enable_notifications_true"
+        android:title="@string/pref_enable_notifications_label" />
+
+</PreferenceScreen>

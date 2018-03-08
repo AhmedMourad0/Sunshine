@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    tools:context="com.example.ahmed.sunshine.MainActivity">
+
+    <!--
+    This layout is a two-pane layout for the Items master/detail flow.
+    -->
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:cardElevation="16dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp">
+
+        <fragment
+            android:id="@+id/fragment_forecast"
+            android:name="com.example.ahmed.sunshine.ForecastFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.ahmed.sunshine.MainActivity"
+            tools:layout="@layout/fragment_main" />
+
+    </android.support.v7.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/weather_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <string name="app_name">SunShine</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="action_map">Map Location</string>
+
+    <!-- Date label when displaying today's weather forecast [CHAR LIMIT=20] -->
+    <string name="today">Today</string>
+
+    <!-- Date label when displaying tomorrow's weather forecast [CHAR LIMIT=20] -->
+    <string name="tomorrow">Tomorrow</string>
+
+    <!-- Date format [CHAR LIMIT=NONE] -->
+    <string name="format_full_friendly_date"><xliff:g id="month">%1$s</xliff:g>, <xliff:g id="day">%2$s</xliff:g></string>
+
+    <!-- Strings for formatting weather-related data -->
+    <!-- Temperature format [CHAR LIMIT=5] -->
+    <!-- \u00B0 is the code for the ° -->
+    <string name="format_temperature"><xliff:g id="temp">%1.0f</xliff:g>\u00B0</string>
+
+    <!-- Windspeed formats -->
+    <!-- Wind in mph [CHAR LIMIT=25] -->
+    <string name="format_wind_mph"><Data><![CDATA[<font face="sans-serif-light"><b>Wind:</b></font>]]></Data> <xliff:g id="speed">%1$1.0f</xliff:g> mph <xliff:g id="direction">%2$s</xliff:g></string>
+
+    <!-- Wind in kph [CHAR LIMIT=25] -->
+    <string name="format_wind_kmh"><Data><![CDATA[<font face="sans-serif-light"><b>Wind:</b></font>]]></Data> <xliff:g id="speed">%1$1.0f</xliff:g> km/h <xliff:g id="direction">%2$s</xliff:g></string>
+
+    <!-- Pressure format CHAR LIMIT=25] -->
+    <string name="format_pressure"><Data><![CDATA[<font face="sans-serif-light"><b>Pressure:</b></font>]]></Data> <xliff:g id="pressure">%1.0f</xliff:g> hPa</string>
+
+    <!-- Humidity format CHAR LIMIT=25]-->
+    <string name="format_humidity"><Data><![CDATA[<font face="sans-serif-light"><b>Humidity:</b></font>]]></Data> <xliff:g id="humidity">%1.0f</xliff:g> %%</string>
+
+    <!-- SyncAdapter related -->
+    <string name="sync_account_type">sunshine.example.com</string>
+    <string name="content_authority">com.example.ahmed.sunshine</string>
+
+    <!-- Notification Format -->
+    <string name="format_notification">Forecast: <xliff:g id="condition">%1$s</xliff:g>\nHigh: <xliff:g id="high">%2$s</xliff:g>\nLow: <xliff:g id="low">%3$s</xliff:g></string>
+
+    <!-- Strings related to Notification Enabled preference -->
+    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
+    <string name="pref_enable_notifications_label">Weather Notifications</string>
+
+    <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="pref_enable_notifications_false">Disabled</string>
+    <string name="pref_enable_notifications_default" translatable="false">true</string>
+    <string name="weather_icon">Weather icon</string>
+
+</resources>

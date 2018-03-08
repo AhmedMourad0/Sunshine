@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ahmed.sunshine">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permissions required by the sync adapter -->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <permission
+        android:name="inc.ahmed.mourad.ACCESS_OWM_WEATHER_DATABASE"
+        android:label="access my weather content provider"
+        android:protectionLevel="dangerous" />
+
+    <permission
+        android:name="inc.ahmed.mourad.ACCESS_SUNSHINE_SYNC_SERVICE"
+        android:label="access my sync service"
+        android:protectionLevel="dangerous" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:label="@string/app_name"
+            android:theme="@style/ForecastTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http"
+                    android:host="com.example.ahmed.sunshine"
+                    android:pathPrefix="/main" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ahmed.sunshine.MainActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http"
+                    android:host="com.example.ahmed.sunshine"
+                    android:pathPrefix="/details" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/SettingsTheme" />
+
+        <!--android:exported="false" means that only our app can see our content provider.-->
+        <!--android:syncable="true" mean that this content provider will be synced with a server.-->
+        <provider
+            android:name=".data.WeatherProvider"
+            android:authorities="@string/content_authority"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="inc.ahmed.mourad.ACCESS_OWM_WEATHER_DATABASE"
+            android:syncable="true" />
+
+        <!--<service android:name=".service.SunshineService" />-->
+
+        <!--<receiver-->
+        <!--android:name=".service.SunshineService$AlarmReceiver"-->
+        <!--android:enabled="true" />-->
+
+        <!-- SyncAdapter's dummy authentication service -->
+        <service android:name=".sync.SunshineAuthenticatorService"
+            android:permission="inc.ahmed.mourad.ACCESS_SUNSHINE_SYNC_SERVICE">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+
+        </service>
+
+        <!-- The SyncAdapter service -->
+        <service
+            android:name=".sync.SunshineSyncService"
+            android:exported="true"
+            android:permission="inc.ahmed.mourad.ACCESS_SUNSHINE_SYNC_SERVICE">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+
+    </application>
+
+</manifest>
