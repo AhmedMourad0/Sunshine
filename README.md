@@ -1,5 +1,5 @@
 # Sunshine
-This's a toy app from over a year ago, it's not well structured and doesn't use the most up-to-date technologies, it's on Github just for the sake of it, however, it works correctly.
+This's a toy app from over a year ago, it's not well structured and doesn't use the most up-to-date technologies, it's on Github just for the sake of it, however, it's fully functional.
 
 ## Screenshots
 
