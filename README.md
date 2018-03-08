@@ -1,6 +1,8 @@
 # Sunshine
 This's a toy app from over a year ago, it's not well structured and doesn't use the most up-to-date technologies, it's on Github just for the sake of it, however, it's fully functional.
 
+It will probably be updated with a cleaner version, not very soon though.
+
 ## Screenshots
 
 ![Screenshot 0](https://github.com/AhmedMouradDev/Sunshine/blob/master/images/Untitled-1.jpg?raw=true)
